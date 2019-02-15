@@ -11,7 +11,7 @@ namespace Task3
         public static FileSystemInfo[] vse;
         public FarMan()
         {
-            dir = new DirectoryInfo(@"C:\Users\dauzh\Desktop\HW");
+            dir = new DirectoryInfo(@"C:\Users\dauzh\Desktop\");
             vse = dir.GetFileSystemInfos();
         }
         FarMan(string path)
