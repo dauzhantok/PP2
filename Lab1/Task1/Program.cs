@@ -12,19 +12,19 @@ namespace Task1
         static void Main(string[] args)
         {
             int n;
-            n = Convert.ToInt32(Console.ReadLine());
-            string[] st = Console.ReadLine().Split(' ');
+            n = Convert.ToInt32(Console.ReadLine());// convert in to number
+            string[] st = Console.ReadLine().Split(' ');// do an arry where ' '
             int[] arr = new int[n];
             for (int i = 0; i < n; i++)
             {
                 arr[i] = Convert.ToInt32(st[i]);
-                if (Prim(arr[i]) == true)
+                if (Prim(arr[i]) == true)// if prim out
                     Console.Write(arr[i] + " ");
                 else continue;
             }
 
         }
-        public static bool Prim(int arr)
+        public static bool Prim(int arr)// chek prim num
         {
             if (arr == 1)
                 return false;

@@ -12,19 +12,20 @@ namespace Task1
         static void Main(string[] args)
         {
             int n = 1;
-            FileStream file = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task1\TextFile.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(file);
-            string st = sr.ReadLine();
+            FileStream file = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task1\TextFile.txt", FileMode.Open, FileAccess.Read);//location of documebt
+            StreamReader sr = new StreamReader(file); // read
+            string st = sr.ReadLine();//st now have text that was in document
             for (int i = 0; i < st.Length; i++)
             {
-                if (st[i] != st[st.Length - n])
+                if (st[i] != st[st.Length - n])// chek first and last element
                 {
                     Console.WriteLine("No");
-                    return;
+                    break;// finish 
                 }
-                else n++;
+                else n++;//last letter move left
             }
             Console.WriteLine("Yes");
+            
 
         }
     }

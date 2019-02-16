@@ -10,16 +10,16 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            FileStream file = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task2\TextFile1.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(file);
-            FileStream sec  = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task2\TextFile2.txt", FileMode.Open, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(sec);
+            FileStream file = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task2\TextFile1.txt", FileMode.Open, FileAccess.Read); //open to read
+            StreamReader sr = new StreamReader(file);//read stream
+            FileStream sec  = new FileStream(@"C:\Users\dauzh\Desktop\PP2\Lab2\Task2\TextFile2.txt", FileMode.Open, FileAccess.Write);//open to write
+            StreamWriter sw = new StreamWriter(sec);//write
             string[] st = sr.ReadLine().Split(' ');
             int[] arr = new int[100000];
             for (int i = 0; i < st.Length; i++)
             {
                 arr[i] = Convert.ToInt32(st[i]);
-                if (Prim(arr[i]))
+                if (Prim(arr[i]))//lab1 task1
                 {
                     sw.Write(arr[i] + " ");
                 }
@@ -28,7 +28,7 @@ namespace Task2
             sw.Close();
             sec.Close();
         }
-        public static bool Prim(int arr)
+        public static bool Prim(int arr)// lab1 Task1
         {
             if (arr == 1)
                 return false;

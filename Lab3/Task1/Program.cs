@@ -15,7 +15,7 @@ namespace Task1
 
         public FarMan() //constructor with default path
         {
-            dir = new DirectoryInfo(@"C:\Users\dauzh\Desktop\HW");
+            dir = new DirectoryInfo(@"C:\Users\dauzh\Desktop\");
             vse = dir.GetFileSystemInfos();
         }
         FarMan(string path)//Constructor with custom path
@@ -60,14 +60,9 @@ namespace Task1
                     }
                     else// opens a file
                     {
+                        string content = File.ReadAllText(vse[cursor].FullName);
                         Cleaner();
-                        string exe = Path.GetExtension(vse[cursor].FullName);
-                        if (exe == ".txt")// if this is a text it gets its contents and prints it
-                        {
-                            string content = File.ReadAllText(vse[cursor].FullName);
-                            Console.WriteLine(content);
-                        }
-                        
+                        Console.WriteLine(content);
                         Console.ReadKey();
                     }
 
@@ -105,7 +100,9 @@ namespace Task1
         public void Show()//function to show all directories and files in the current folder
         {
             Cleaner();
+
             vse = dir.GetFileSystemInfos();//get list of files and directories in current folder
+            vse = SorterDaDaYa(vse);
             for (int i = 0; i < vse.Length; i++)//checks every item in vse to color console
             {
                 if (i == cursor)//colors selected item
@@ -146,11 +143,33 @@ namespace Task1
             }
       
         }
-        public void Cleaner()
+        public void Cleaner()//cleans console
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
+        }
+        public FileSystemInfo[] SorterDaDaYa(FileSystemInfo[] Da)
+        {
+            bool conti = true;
+            FileSystemInfo Ya;
+            while (conti)
+            {
+                conti = false;
+                for (int i = 1; i < vse.Length; i++)
+                {
+
+
+                    if (Da[i].GetType() == typeof(DirectoryInfo) && Da[i - 1].GetType() == typeof(FileInfo))
+                    {
+                        Ya = Da[i];
+                        Da[i] = Da[i - 1];
+                        Da[i - 1] = Ya;
+                        conti = true;
+                    }
+                }
+            }
+            return Da;
         }
     }
     class Program

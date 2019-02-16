@@ -17,7 +17,11 @@ namespace Task3
             }
             for (int i = 0; i < num; i++)
             {
-                Console.Write(arr[i] + " " + arr[i] + " ");
+                // Console.Write(arr[i] + " " + arr[i] + " ");
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
             }
         }
     }

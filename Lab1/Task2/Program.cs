@@ -19,6 +19,7 @@ namespace Task2
             name = Console.ReadLine();
             year = Convert.ToInt32(Console.ReadLine());
             id = Convert.ToInt32(Console.ReadLine());
+            count++;
         }
 
         public Student(string name, int year, int id)
@@ -30,11 +31,16 @@ namespace Task2
             Print();
         }
 
-        public void Print()
+        public void Print()//print
         {
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Year: " + year);
             Console.WriteLine("ID: " + id);
+        }
+        public void nextyear()
+        {
+            year++;
+            Console.WriteLine( year);
         }
     }
 
@@ -45,10 +51,11 @@ namespace Task2
         {
             Student Aruzhan = new Student("Aruzhan", 1, 66666);
 
-            Student Dauzhan = new Student();
+            Student a = new Student();
 
 
-            Dauzhan.Print();
+            a.Print();
+            a.nextyear();
 
             Console.WriteLine(Student.count);
         }
